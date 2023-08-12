@@ -1,88 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
-  <title>Frontend Mentor | Interactive card details form</title>
-</head>
-
-<body>
-
-
-  <main>
-    <img src="./images/bg-main-desktop.png" alt="" class="sidebar">
-    <div class="card-container">
-      <div class="front-card">
-        <div class="circle"></div>
-        <div class="number-card">
-          <p>0000 0000 0000 0000</p>
+  <body>
+    <main>
+      <img src="./images/bg-main-desktop.png" alt="" class="sidebar" />
+      <div class="card-container">
+        <div class="front-card">
+          <div class="circle"></div>
+          <div class="number-card">
+            <p id="nCard">0000 0000 0000 0000</p>
+          </div>
+          <div class="information-container">
+            <div class="nome">
+              <p id="name-card">JANE APPLESSED</p>
+            </div>
+            <div  class="date">
+              <p id="dateCard">00/00</p>
+            </div>
+          </div>
         </div>
-        <div class="information-container">
-          <div class="nome">
-            <p id="name-card">JANE APPLESSED</p>
-          </div>
-          <div class="date">
-            <p>00/00</p>
-          </div>
+
+        <div class="back-card">
+          <img src="./images/bg-card-back.png" alt="back card" />
+          <p class="card-cvc" id="cvcCard">000</p>
         </div>
       </div>
 
-      <div class="back-card">
-        <img src="./images/bg-card-back.png" alt="back card" />
-        <p class="card-cvc">000</p>
+      <div class="form-container">
+        <form action="" method="get">
+          <p>CARDHOLDER NAME</p>
+          <input
+            class="long-input campo"
+            type="text"
+            placeholder="e.g. Jane Aplessed"
+            id="name"
+            onchange="nameValidate()"
+          />
+          <p class="advice hidde">Campo Obrigatório</p>
+
+          <p>CARD NUMBER</p>
+          <input
+            class="long-input campo"
+            type="text"
+            name="card-number-input"
+            id="card-number-input"
+            placeholder="e.g 1234 5678 9123 0000"
+            maxlength="16"
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+            onchange="numberValidate()"
+          />
+          <p class="advice hidde">Campo Obrigatório</p>
+
+          <div class="container-information">
+            <div class="date">
+              <p>EXP DATE (MM/YY)</p>
+              <input
+                class="short-input campo"
+                type="text"
+                name="mes"
+                id="mes"
+                maxlength="2"
+                placeholder="MM"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                onchange="mouthValidate()"
+              />
+
+              <input
+                class="short-input campo"
+                type="text"
+                name="ano"
+                id="ano"
+                maxlength="2"
+                placeholder="YY"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                onchange="yearValidate()"
+              />
+              <p class="advice hidde">Campo Obrigatório</p>
+            </div>
+            <div class="cvc">
+              <p>CVC</p>
+              <input
+                class="cvc-number campo"
+                type="text"
+                name="cvc-number"
+                id="cvc"
+                maxlength="3"
+                placeholder="eg. 123"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
+                onchange="cvcValidate()"
+              />
+            </div>
+          </div>
+          <input class="button" type="button" value="Confirmar" onclick="validar()">
+        </form>
       </div>
-    </div>
+      <div id="add-card" class="confirm-screen hidde">
+        <img src="./images/icon-complete.svg" alt="confirm screen" />
+        <h1>Obrigado!</h1>
+        <p>Cartão adicionado com sucesso!</p>
+        <button>Continue</button>
+      </div>
+    </main>
 
-
-    <div class="form-container">
-      <form action="" method="get">
-        <p>CARDHOLDER NAME</p>
-        <input class="long-input campo" type="text" placeholder="e.g. Jane Aplessed" id="name" />
-        <p class="advice hidde">Campo Obrigatório</p>
-
-        <p>CARD NUMBER</p>
-        <input class="long-input campo" type="text" name="card-number-input" id="card-number-input"
-          placeholder="e.g 1234 5678 9123 0000" maxlength="16"
-          oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-        <p class="advice hidde">Campo Obrigatório</p>
-
-        <div class="container-information">
-          <div class="date campo">
-            <p>EXP DATE (MM/YY)</p>
-            <input class="short-input campo" type="text" name="mes" id="mes" maxlength="2" placeholder="MM"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-
-            <input class="short-input" type="text" name="ano" id="ano" maxlength="2" placeholder="YY"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-            <p class="advice hidde">Campo Obrigatório</p>
-          </div>
-          <div class="cvc">
-            <p>CVC</p>
-            <input class="cvc-number" type="text" name="cvc-number" id="cvc" maxlength="3" placeholder="eg. 123"
-              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" />
-
-          </div>
-        </div>
-        <button>Confirmar</button>
-      </form>
-    </div>
-    <div class="confirm-screen hidde">
-      <img src="./images/icon-complete.svg" alt="confirm screen" />
-      <h1>Obrigado!</h1>
-      <p>Cartão adicionado com sucesso!</p>
-      <button>Continue</button>
-    </div>
-  </main>
-
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>

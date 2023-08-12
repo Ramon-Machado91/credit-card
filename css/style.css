@@ -143,7 +143,7 @@ input {
   margin-left: 5px;
 }
 
-button {
+.button {
   width: 26.389vw;
   height: 3.819vw;
   color: #fff;
@@ -169,6 +169,12 @@ button {
 .hidde{
   display: none;
 }
+
+.campo.campo-preenchido{
+  border: solid var(--completed-input) 1px;
+}
+
+
 
 @media (max-width: 755px) {
   body {
@@ -242,7 +248,7 @@ button {
     height: 30px;
   }
 
-  button {
+  .button {
     width: 320px;
     height: 40px;
   }
