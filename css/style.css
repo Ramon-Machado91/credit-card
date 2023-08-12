@@ -13,11 +13,6 @@ body {
   background-color: #fff;
   height: 100vh;
   width: 100vw;
-  background: url(../images/background-desktop.png) no-repeat left fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 :root {
@@ -36,9 +31,16 @@ main {
   height: 100vh;
 }
 
+.sidebar {
+  max-width: 530px;
+  height: 100vh;
+}
+
 .card-container {
   width: auto;
-  margin: 20px;
+  margin-left: 30px;
+  position: relative;
+  right: 20%;
 }
 
 .card-container .front-card {
@@ -51,6 +53,30 @@ main {
   right: 20%;
   margin-bottom: 30px;
   margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 5px 20px;
+}
+
+.card-container .circle {
+  height: 40px;
+  width: 40px;
+  border-radius: 50px;
+  background-color: white;
+}
+
+.card-container .number-card {
+  color: white;
+  font-size: 1.736vw;
+  letter-spacing: 2px;
+}
+
+.card-container .information-container {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  font-size: 1.25vw;
 }
 
 .card-container .back-card {
@@ -58,31 +84,41 @@ main {
   height: 17.153vw;
 }
 
+.card-cvc {
+  position: relative;
+  top: -60%;
+  left: 80%;
+  color: white;
+  font-size: 1.25vw;
+}
+
 input {
   padding-left: 10px;
   margin-bottom: 30px;
 }
 
-.form-container{
+.form-container {
   background-color: #fff;
-  padding: 20px;
   border-radius: 10px;
+  transform: translateX(-30%);
+  margin-right: 2.083vw;
+  
 }
 
 .form-container p {
-  font-size: 12px;
+  font-size: 8px;
   letter-spacing: 1px;
 }
 
 .form-container .advice {
   color: var(--erro-msg-color);
   transform: translateY(-20px);
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .form-container .long-input {
-  width: 380px;
-  height: 45px;
+  width: 26.389vw;
+  height: 3.125vw;
   border-radius: 10px;
   border: solid var(--light-color) 1px;
 }
@@ -90,29 +126,129 @@ input {
 .container-information {
   display: flex;
 }
+
 .form-container .short-input {
-  width: 80px;
-  height: 45px;
+  width: 4.861vw;
+  height: 3.125vw;
   border-radius: 10px;
   border: solid var(--light-color) 1px;
-  margin-right: 10px;
+  margin-right: 0.694vw;
 }
+
 .cvc-number {
-  height: 45px;
+  width: 13.889vw;
+  height: 3.125vw;
   border-radius: 10px;
   border: solid var(--light-color) 1px;
-  width: 190px;
   margin-left: 5px;
 }
 
 button {
-  width: 380px;
-  height: 55px;
+  width: 26.389vw;
+  height: 3.819vw;
   color: #fff;
   border-radius: 10px;
   background-color: var(--very-dark-color);
+  cursor: pointer;
 }
 
 .confirm-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  left: -10%;
+}
+
+.confirm-screen img {
+  height: 60px;
+  width: 60px;
+}
+
+.hidde{
   display: none;
+}
+
+@media (max-width: 755px) {
+  body {
+    overflow: hidden;
+    background-image: url(../images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-size: 750px 200px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .card-container .front-card {
+    position: absolute;
+    bottom: -90%;
+    width: 195px;
+    height: 107px;
+  }
+
+  .card-container .circle{
+    width: 20px;
+    height: 20px;
+  }
+
+  .card-container .number-card {
+    font-size: 10px;
+  }
+
+  .card-container .information-container {
+    font-size: 10px;
+  }
+
+  .card-container .back-card {
+    width: 195px;
+    height: 107px;
+  }
+
+  .card-cvc {
+    font-size: 10px;
+  }
+
+  .card-container {
+    position: relative;
+    left: 4%;
+  }
+
+  .form-container {
+    position: relative;
+    left: 25%;
+    margin-left: 20px;
+  }
+
+  .form-container .long-input {
+    width: 320px;
+    height: 30px;
+  }
+
+  .form-container .short-input {
+    width: 70px;
+    height: 30px;
+  }
+
+  .cvc-number {
+    width: 160px;
+    height: 30px;
+  }
+
+  button {
+    width: 320px;
+    height: 40px;
+  }
+
+  .confirm-screen{
+    transform: translateX(30px);
+
+  }
 }
