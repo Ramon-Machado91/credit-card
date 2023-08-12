@@ -1,0 +1,118 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+  background: url(../images/background-desktop.png) no-repeat left fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+:root {
+  --light-color: hsl(270, 3%, 87%);
+  --dark-color: hsl(279, 6%, 55%);
+  --very-dark-color: hsl(278, 68%, 11%);
+  --erro-msg-color: hsl(0, 100%, 66%);
+  --completed-input: hsl(249, 99%, 64%);
+  --input-color: hsl(278, 94%, 30%);
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-container {
+  width: auto;
+  margin: 20px;
+}
+
+.card-container .front-card {
+  background-image: url(../images/bg-card-front.png);
+  background-repeat: no-repeat;
+  width: 31.25vw;
+  height: 17.153vw;
+  border-radius: 10px;
+  position: relative;
+  right: 20%;
+  margin-bottom: 30px;
+  margin-left: 30px;
+}
+
+.card-container .back-card {
+  width: 31.25vw;
+  height: 17.153vw;
+}
+
+input {
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+.form-container{
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.form-container p {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.form-container .advice {
+  color: var(--erro-msg-color);
+  transform: translateY(-20px);
+  font-size: 10px;
+}
+
+.form-container .long-input {
+  width: 380px;
+  height: 45px;
+  border-radius: 10px;
+  border: solid var(--light-color) 1px;
+}
+
+.container-information {
+  display: flex;
+}
+.form-container .short-input {
+  width: 80px;
+  height: 45px;
+  border-radius: 10px;
+  border: solid var(--light-color) 1px;
+  margin-right: 10px;
+}
+.cvc-number {
+  height: 45px;
+  border-radius: 10px;
+  border: solid var(--light-color) 1px;
+  width: 190px;
+  margin-left: 5px;
+}
+
+button {
+  width: 380px;
+  height: 55px;
+  color: #fff;
+  border-radius: 10px;
+  background-color: var(--very-dark-color);
+}
+
+.confirm-screen {
+  display: none;
+}
