@@ -79,6 +79,10 @@ main {
   font-size: 1.25vw;
 }
 
+.card-container .date{
+  display: flex;
+}
+
 .card-container .back-card {
   width: 31.25vw;
   height: 17.153vw;

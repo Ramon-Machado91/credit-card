@@ -1,11 +1,5 @@
 const campos = document.querySelectorAll(".campo");
 const advices = document.querySelectorAll(".advice");
-const confirm = document.getElementById("add-card");
-const formulario = document.getElementsByClassName("form-container");
-const nameCard = document.getElementById("name-card");
-const cvcNumber = document.getElementById("cvcCard");
-const dateCard = document.getElementById("dateCard");
-const cardNumber = document.getElementById("nCard");
 
 function nameValidate() {
   if (campos[0].value.length <= 1) {
@@ -65,4 +59,51 @@ function errorRemove(index) {
   advices[index].classList.add("hidde");
 }
 
+const submitButton = document.getElementById("verificar");
+const validationScreen = document.getElementById("add-card");
+const formulario = document.getElementById("formulario1");
 
+const nome = document.getElementById("name");
+const cardNumber = document.getElementById("card-number-input");
+const mouth = document.getElementById("mes");
+const year = document.getElementById("ano");
+const cvcNumber = document.getElementById("cvc");
+
+const cardName = document.getElementById("name-card");
+const cardNumero = document.getElementById("nCard");
+const mes = document.getElementById("mesCard");
+const ano =document.getElementById('year2')
+const cvcN = document.getElementById("cvcCard");
+
+console.log(year)
+
+submitButton.addEventListener("click", () => {
+  if (
+    nome.value &&
+    cardNumber.value &&
+    mouth.value &&
+    year.value &&
+    cvcNumber.value
+  ) {
+    validationScreen.classList.remove("hidde");
+    formulario.classList.add("hidde");
+    cardName.innerHTML = `${nome.value.toUpperCase()}`;
+    cardNumero.innerHTML = `${formatCreditCard(cardNumber.value)}`;
+    mes.innerHTML= `${mouth.value}/`;
+    ano.innerHTML= `${year.value}`;
+    cvcN.innerHTML = `${cvcNumber.value}`;
+  } else {
+    alert("Atenção! Preecha todos os campos");
+  }
+});
+
+function formatCreditCard(value) {
+  const cleanedValue = value.replace(/\s/g, "");
+  const formattedValue = cleanedValue.replace(/(\d{4})(?=\d)/g, "$1 ");
+  return formattedValue;
+}
+
+const refresh = document.getElementById("refreshButton");
+refresh.addEventListener("click", function () {
+  location.reload();
+});

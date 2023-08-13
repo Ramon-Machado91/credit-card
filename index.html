@@ -20,7 +20,7 @@
     />
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
-
+<!-- Card -->
   <body>
     <main>
       <img src="./images/bg-main-desktop.png" alt="" class="sidebar" />
@@ -35,7 +35,8 @@
               <p id="name-card">JANE APPLESSED</p>
             </div>
             <div  class="date">
-              <p id="dateCard">00/00</p>
+              <p id="mesCard">00/</p>
+              <p id="year2">00</p>
             </div>
           </div>
         </div>
@@ -45,8 +46,8 @@
           <p class="card-cvc" id="cvcCard">000</p>
         </div>
       </div>
-
-      <div class="form-container">
+      <!-- formulário -->
+      <div id="formulario1" class="form-container">
         <form action="" method="get">
           <p>CARDHOLDER NAME</p>
           <input
@@ -111,14 +112,14 @@
               />
             </div>
           </div>
-          <input class="button" type="button" value="Confirmar" onclick="validar()">
+          <input id="verificar" class="button" type="button" value="Confirmar">
         </form>
       </div>
       <div id="add-card" class="confirm-screen hidde">
         <img src="./images/icon-complete.svg" alt="confirm screen" />
         <h1>Obrigado!</h1>
         <p>Cartão adicionado com sucesso!</p>
-        <button>Continue</button>
+        <input id="refreshButton" class="button" type="button" value="Continue">
       </div>
     </main>
 
